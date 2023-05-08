@@ -4,6 +4,7 @@ module Data.Base64
        , Base64
        , runBase64
        , fromString
+       , arrayBufferToString
        ) where
 
 import Data.ArrayBuffer.Types (ArrayBuffer)
