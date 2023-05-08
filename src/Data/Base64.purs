@@ -22,6 +22,7 @@ instance showBase64 :: Show Base64 where
   show (Base64 s) = "Base64 (" <> s <> ")"
 
 foreign import encodeBase64Impl :: ArrayBuffer -> String
+foreign import arrayBufferToString :: ArrayBuffer -> String
 
 -- | Encodes an ArrayBuffer into the base64 representation thereof
 encodeBase64 :: ArrayBuffer -> Base64

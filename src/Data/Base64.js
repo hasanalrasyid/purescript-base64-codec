@@ -22,6 +22,8 @@ exports.encodeBase64Impl = function (buffer) {
   }
 };
 
+exports.arrayBufferToString = arrayBuffer => new TextDecoder(ENCODING).decode(new Uint8Array(arrayBuffer));
+
 exports.decodeBase64Impl = function (just, nothing, str) {
   try {
     validateBase64(str);
