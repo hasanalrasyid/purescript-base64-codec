@@ -7,7 +7,7 @@ function validateBase64(s) {
   }
 }
 
-exports.encodeBase64Impl = function (buffer) {
+export function encodeBase64Impl (buffer) {
   if (typeof btoa === 'undefined') {
     // Node
     return Buffer.from(buffer).toString('base64');
@@ -22,9 +22,11 @@ exports.encodeBase64Impl = function (buffer) {
   }
 };
 
-exports.arrayBufferToString = arrayBuffer => new TextDecoder(ENCODING).decode(new Uint8Array(arrayBuffer));
+export function arrayBufferToString(arrayBuffer){
+  return(new TextDecoder(ENCODING).decode(new Uint8Array(arrayBuffer)));
+}
 
-exports.decodeBase64Impl = function (just, nothing, str) {
+export function decodeBase64Impl (just, nothing, str) {
   try {
     validateBase64(str);
     if (typeof atob === 'undefined') {
@@ -45,7 +47,7 @@ exports.decodeBase64Impl = function (just, nothing, str) {
   }
 };
 
-exports.fromStringImpl = function (just, nothing, str) {
+export function fromStringImpl (just, nothing, str) {
   try {
     validateBase64(str);
     return just(str);
